@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.util.StringTokenizer; /* @author PROF.SAKEENA */
+
+public class Customer1 {
+    private String custName;
+    private String dob;
+
+    public Customer1(String custName, String dob) {
+
+        this.custName = custName;
+        this.dob = dob;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter customername");
+        String custName = scanner.nextLine();
+        System.out.println("enter date(dd/mm/yyyy)");
+        String dob = scanner.next();
+        Customer1 customer = new Customer1(custName, dob);
+        System.out.println("Customer name " + customer.custName);
+        StringTokenizer date = new StringTokenizer(customer.dob, "/");
+        System.out.print("customer DOB: " + date.nextToken() + "," + date.nextToken() + "," + date.nextToken());
+    }
+
+}

@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class Floyds {
+
+    public static int min(int a, int b){
+        if(a<b) return a;
+        else return b;
+    }
+
+    public static void Floyds_shortest_path(int wt[][], int n) {
+        int d[][] = new int[10][10];
+        int i,j,k;
+
+        for ( i = 1; i <= n; i++)
+            for( j = 1; j<=n ;j++)
+                d[i][j] = wt[i][j];
+
+        for(k=1;k<=n;k++)
+            for(i=1;i<=n;i++)
+                for(j=1;j<=n;j++)
+                    d[i][j] = min(d[i][j],(d[i][k]+d[k][j]));
+        
+        for(k=0;k<=n;k++){
+            System.out.println("d("+k+")\n");
+            for(i=1;i<=n;i++){
+                for(j=1;j<=n;j++)
+                {
+                    System.out.print(" "+d[i][j]);
+                }
+            System.out.println("\n");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int wt[][] = new int[10][10];
+        int n,i,j;
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Create a graph using ad matrix\n");
+        System.out.println("Enter the number of nodes");
+        n = in.nextInt();
+
+        System.out.println("Enter the nodes entr 999 for infinity");
+        for(i=1;i<=n;i++)
+            for(j=1;j<=n;j++){
+                // System.out.print("wt["+i+"]["+j+"]\n");
+                wt[i][j] = in.nextInt();
+            }
+        
+        System.out.println("The shortest path by computing all pair");
+        Floyds_shortest_path(wt, n);
+    }
+}

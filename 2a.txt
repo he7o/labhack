@@ -1,0 +1,90 @@
+    package staff; 
+    
+    class Stf{
+
+
+private int StafId;
+private String Name;
+private String Phone; private long Salary;
+public Stf(int stafid,String name,String phone,long salary)
+{
+
+StafId=stafid; Name=name; Phone=phone; Salary=salary;
+}
+
+public void Display()
+{
+
+System.out.print(StafId+"\t"+Name+"\t"+Phone+"\t"+Salary);
+}
+}
+
+class Teaching extends Stf	//inheritance
+{
+
+private String Domain; private int Publication;
+public Teaching(int stafid,String name,String phone,long salary,String domain,int publication)
+ 
+{
+super(stafid,name,phone,salary); Domain=domain; Publication=publication;
+}
+
+public void Display()
+{
+
+super.Display();
+System.out.print("\t"+Domain+"\t\t"+Publication+"\t\t"+"---"+"\t\t"+"---");
+}
+}
+
+class Technical extends Stf
+{
+
+private String Skills;
+public Technical(int stafid,String name,String phone,long salary,String skills){ super(stafid,name,phone,salary);
+Skills=skills;
+}
+
+public void Display()
+{
+
+super.Display();
+System.out.print("\t"+"---"+"\t\t---"+"\t\t"+Skills+"\t"+"---");
+}
+}
+
+class Contract extends Stf
+{
+
+private int Period;
+ 
+public Contract(int stafid,String name,String phone,long salary,int period){ super(stafid,name,phone,salary);
+this.Period=period;
+}
+
+public void Display()
+{
+
+super.Display();
+System.out.print("\t---"+"\t\t---"+"\t\t---"+"\t\t"+Period);
+}
+}
+
+public class STAFF{
+public static void main(String[] args)
+{
+
+Stf stf[]=new Stf[3];
+stf[0]= new Teaching(1,"RAHIL","944955001",25000,"CSE",10);
+stf[1]= new Technical(2,"REEHA","944955002",10000,"system admin"); stf[2]= new Contract(3 ,"RIFA","944955003",20000,3);
+System.out.println("STAFFID\tNAME\tPHONE\t\tSALARY\tDOMAIN\t\tPUBLICATION\tSK ILLS\t\tPERIOD");
+for(int i=0;i<3;i++)
+{
+
+stf[i].Display(); System.out.println();
+}
+}
+}
+
+>
+  
